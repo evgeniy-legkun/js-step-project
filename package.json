@@ -1,0 +1,32 @@
+{
+  "name": "js.local",
+  "version": "1.0.0",
+  "description": "STEP study project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evgeniy-legkun/js-step-project.git"
+  },
+  "keywords": [],
+  "author": "Evgeniy Legkun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evgeniy-legkun/js-step-project/issues"
+  },
+  "homepage": "https://github.com/evgeniy-legkun/js-step-project#readme",
+  "dependencies": {
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2"
+  }
+}

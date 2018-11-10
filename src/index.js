@@ -28,8 +28,6 @@ function Person () {
 }
 Person.prototype.fullName = getFullName;
 
-
-
 class BasePerson {
   constructor () {
     this.animalName = 'Cat';
@@ -62,8 +60,8 @@ class NewPerson extends BasePerson {
 }
 const obj = new BasePerson();
 const newPerson = new Person();
-const admin = new Person();// Objects, Classes
+const admin = new Person(); // Objects, Classes
 
 // Modules JS (does not support without Babel)
-// import testObj from './modules/module';
-// console.log('IMPORT ', testObj);
+import baseModule from './modules/module';
+console.log('TEST IMPORT ', baseModule);
