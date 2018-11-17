@@ -64,4 +64,15 @@ const admin = new Person(); // Objects, Classes
 
 // Modules JS (does not support without Babel)
 import baseModule from './modules/module';
-console.log('TEST IMPORT ', baseModule);
+import { getNameWithPrefix, variable } from './modules/module';
+import min from 'lodash/min';
+
+console.log('TEST IMPORT 1', baseModule);
+console.log('TEST IMPORT 2', getNameWithPrefix('Masha', ' admin'));
+
+
+if (module.hot) {
+  module.hot.accept('../message.js', function () {
+    print();
+  });
+}
