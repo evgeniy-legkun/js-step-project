@@ -1,16 +1,11 @@
 const path = require('path');
 // plugins
 const ClearWebpackPlugin = require('clean-webpack-plugin');
-const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
   entry: {
     app: './src/index.js'
-  },
-  devServer: {
-    contentBase: './dist',
-    hot: true
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -30,7 +25,6 @@ module.exports = {
     ignored: /node_modules/
   },
   plugins: [
-    new ClearWebpackPlugin(['dist']),
-    new webpack.HotModuleReplacementPlugin()
+    new ClearWebpackPlugin(['dist'])
   ]
 };
