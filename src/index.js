@@ -15,8 +15,6 @@ const person = {
 
 person.newField = '';
 
-console.log('new  ', person);
-
 // Second CLASS
 function Person () {
   this.name = 'Mark';
@@ -64,15 +62,31 @@ const admin = new Person(); // Objects, Classes
 
 // Modules JS (does not support without Babel)
 import baseModule from './modules/module';
-import { getNameWithPrefix, variable } from './modules/module';
-import min from 'lodash/min';
 
-console.log('TEST IMPORT 1', baseModule);
-console.log('TEST IMPORT 2', getNameWithPrefix('Masha', ' admin'));
+// ASYNC JS
 
+// Async js via callbacks
+function getProviders (callBack) {
+  setTimeout(() => {
+    callBack([1.1, 1.2, 1.3]);
+  }, 1000);
+}
 
-if (module.hot) {
-  module.hot.accept('../message.js', function () {
-    print();
+function getProductCategories (providers, callBack) {
+  setTimeout(() => {
+    callBack([...providers, 2.1, 2.2, 2.3]);
+  }, 1000);
+}
+
+function getProducts () {
+  return getProviders(function (providers) {
+    return getProductCategories(providers, function (caterories) {
+      return setTimeout(() => {
+        const result = [...caterories, 3.1, 3.2, 3.3];
+        console.log('RESULT', result);
+      }, 1000);
+    });
   });
 }
+
+getProducts();
