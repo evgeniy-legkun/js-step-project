@@ -90,3 +90,24 @@ function getProducts () {
 }
 
 getProducts();
+
+// Oleg Zasadnuik
+function  getAnimals(callBack,time) {
+    setTimeout(() => {callBack([Cat,Dog,Chicken]);
+    },time);
+}
+function getCat(getanimals,callBack) {
+    setTimeout(() =>{
+      callBack([Cat]);
+    },1000);
+}
+function getDog() {
+
+}
+function getChicken() {
+
+}
+
+function getAllAnimals() {
+
+}
