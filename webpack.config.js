@@ -1,7 +1,7 @@
 const path = require('path');
 // plugins
 const ClearWebpackPlugin = require('clean-webpack-plugin');
-
+//
 module.exports = {
   mode: 'development',
   entry: {

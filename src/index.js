@@ -76,3 +76,36 @@ if (module.hot) {
     print();
   });
 }
+
+
+
+
+//////
+
+function getCat() {
+    return 'cat';
+}
+
+function getDog() {
+    return 'dog';
+}
+
+function getChicken() {
+    return 'chicken';
+}
+
+function getListAnimals() {
+    return getChicken() {
+      return getDog(){
+          return getCat(){
+              return setTimeout(()=>{
+                  const result=[animals];
+                  console.log('ListAnimal ', animals);
+              },1000);
+            }
+        }
+    })
+}
+function animals() {
+
+}
