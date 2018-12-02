@@ -1,3 +1,4 @@
+/*
 const getFullName = function (prefix = '_pref') {
   return this.name + ' ' + this.surName + ' ' + prefix;
 };
@@ -76,12 +77,11 @@ if (module.hot) {
     print();
   });
 }
+*/
 
 
-
-
-//////
-
+//////неработающий код, не сделал
+/*
 function getCat() {
     return 'cat';
 }
@@ -98,8 +98,8 @@ function getListAnimals() {
     return getChicken() {
       return getDog(){
           return getCat(){
-              return setTimeout(()=>{
-                  const result=[animals];
+              return setTimeout(() => {
+                  const result = [animals];
                   console.log('ListAnimal ', animals);
               },1000);
             }
@@ -109,3 +109,54 @@ function getListAnimals() {
 function animals() {
 
 }
+*/
+
+/*
+
+function getProductCategories(callBack) {
+    setTimeout(()=>{
+        const result=['sdfv1', 'dfv2' , 't3'];
+        callBack(result);
+        return result;
+    }, 1000);
+}
+function getProducts(productCategories) {
+  setTimeout(()=>{
+   const result = [...productCategories, 'shirt', 'sdfsd' , 'trousers'];
+      console.log('product with Categories', result);
+   return result;
+  }, 1000);
+}
+
+getProductCategories(function (productCategories) {
+    getProducts(productCategories);
+});
+
+
+getProducts();
+*/
+
+import axios from 'axios';
+const promise = new Promise((resolve, reject ) => {
+    axios ({
+        method: 'get',
+        url: 'https://jsonplaceholder.typicode.com/users'
+    }), then((result) => {
+        resolve(result);
+    }).catch((err) => {
+        reject(err);
+    });
+});
+
+promise
+    .then((result) => {
+const users=result.data;
+if(Array.isArray(user) && users.length !==0 ) {
+    return users.filter((user) => {return user.website === 'elvis.io'})[0] || []
+} else {
+    return []
+}
+    })
+    .then((user) => {
+
+    })
