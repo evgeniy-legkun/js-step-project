@@ -1,92 +1,53 @@
-const getFullName = function (prefix = '_pref') {
-  return this.name + ' ' + this.surName + ' ' + prefix;
-};
-
-// First
-const person = {
-  name: 'Mark',
-  surName: 'Markov',
-  neighbor: {
-    name: 'Taras',
-    surName: 'Dev'
-  },
-  fullName: getFullName
-};
-
-person.newField = '';
-
-// Second CLASS
-function Person () {
-  this.name = 'Mark';
-  this.surName = 'Markov';
-  this.neighbor = {
-    name: 'Taras',
-    surName: 'Dev'
-  };
-}
-Person.prototype.fullName = getFullName;
-
-class BasePerson {
-  constructor () {
-    this.animalName = 'Cat';
-  }
-
-  getAnimal () {
-    return this.animalName + ' from getter';
-  }
-}
-
-// Third
-class NewPerson extends BasePerson {
-  constructor () {
-    super();
-    this.name = 'Mark';
-    this.surName = 'Markov';
-    this.neighbor = {
-      name: 'Taras',
-      surName: 'Dev'
-    };
-  }
-
-  getFullName (prefix = '_pref') {
-    return this.name + ' ' + this.surName + ' ' + prefix;
-  }
-
-  getAnimal () {
-    return this.animalName + ' DATA FROM CHILD ' + this.name +' _ from getter';
-  }
-}
-const obj = new BasePerson();
-const newPerson = new Person();
-const admin = new Person(); // Objects, Classes
-
-// Modules JS (does not support without Babel)
-import baseModule from './modules/module';
-
 // ASYNC JS
+import axios from 'axios';
 
-// Async js via callbacks
-function getProviders (callBack) {
-  setTimeout(() => {
-    callBack([1.1, 1.2, 1.3]);
-  }, 1000);
-}
-
-function getProductCategories (providers, callBack) {
-  setTimeout(() => {
-    callBack([...providers, 2.1, 2.2, 2.3]);
-  }, 1000);
-}
-
-function getProducts () {
-  return getProviders(function (providers) {
-    return getProductCategories(providers, function (caterories) {
-      return setTimeout(() => {
-        const result = [...caterories, 3.1, 3.2, 3.3];
-        console.log('RESULT', result);
-      }, 1000);
+// PROMISES
+new Promise((resolve, reject) => {
+  axios({
+    method: 'get',
+    url: 'https://jsonplaceholder.typicode.com/users'
+  }).then((result) => {
+    resolve(result);
+  }).catch((err) => {
+    reject(err);
+  });
+})
+  .then((result) => {
+    const users = result.data;
+    if (Array.isArray(users) && users.length !== 0) {
+      return users.filter((user) => { return user.website === 'elvis.io' })[0] || [];
+    } else {
+      return [];
+    }
+  })
+  .then((user) => {
+    return axios({
+      method: 'get',
+      url: 'https://jsonplaceholder.typicode.com/users/' + user.id
+    }).then((result) => {
+      return result.data;
+    }).catch((err) => {
+      return err;
     });
+  })
+  .then((dataOfNeededUser) => {
+    // console.log('USER DATA (Promise)', dataOfNeededUser);
+  })
+  .catch((error) => {
+    // console.log('Error (Promise)', error);
+  });
+
+// Async / Await
+async function getUsers() {
+  const result = await axios.get('https://jsonplaceholder.typicode.com/users');
+  const users = result.data;
+  console.log('USERS', users);
+}
+
+async function getData () {
+  getUsers().then(() => {
+    console.log('Code after getUsers function !!!!!!!!!!!!!!!');
   });
 }
 
-getProducts();
+getData();
