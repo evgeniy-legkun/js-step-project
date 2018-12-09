@@ -1,42 +1,25 @@
 {
   "name": "js.local",
-  "version": "1.0.0",
-  "description": "STEP study project",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --config webpack.config.js",
-    "watch": "webpack --config webpack.config.js --watch --info-verbosity verbose",
-    "start:dev": "webpack-dev-server --open"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/evgeniy-legkun/js-step-project.git"
-  },
-  "keywords": [],
-  "author": "Evgeniy Legkun",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/evgeniy-legkun/js-step-project/issues"
-  },
-  "homepage": "https://github.com/evgeniy-legkun/js-step-project#readme",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
-    "axios": "^0.18.0",
-    "lodash": "^4.17.11",
-    "react": "^16.6.1",
-    "react-dom": "^16.6.1"
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-scripts": "2.1.1"
   },
-  "devDependencies": {
-    "@babel/core": "^7.1.5",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-    "@babel/plugin-transform-async-to-generator": "^7.1.0",
-    "@babel/preset-env": "^7.1.5",
-    "babel-loader": "^8.0.4",
-    "babel-plugin-syntax-async-functions": "^6.13.0",
-    "clean-webpack-plugin": "^1.0.0",
-    "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
-  }
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
