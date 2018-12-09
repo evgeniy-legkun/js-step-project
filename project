@@ -1,0 +1,59 @@
+[33mcommit f3f1e9a256d5a6fdf06db68f950e61e4dc7138a6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Evgeniy Legkun <evgeniy.legkun@gmail.com>
+Date:   Sun Dec 9 16:33:33 2018 +0200
+
+    ejected incapsulated project configuration
+
+[33mcommit bc1a9cc34ea22c7c87ec606136c4cbb45021b8d2[m
+Author: Evgeniy Legkun <evgeniy.legkun@gmail.com>
+Date:   Sun Dec 9 16:19:59 2018 +0200
+
+    updated project configuration using create-reat-app
+
+[33mcommit 75a12197a890b32f39134199f1cb4c0bfb889cd1[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Evgeniy Legkun <evgeniy.legkun@gmail.com>
+Date:   Sun Dec 2 19:15:38 2018 +0200
+
+    added promises, async/await, transform async/await via babel
+
+[33mcommit f4fa8234cad6138b2c2296f1bd94d6da6bbff20c[m
+Author: Evgeniy Legkun <evgeniy.legkun@gmail.com>
+Date:   Sun Nov 25 19:13:53 2018 +0200
+
+    removed idea folder from git
+
+[33mcommit 7bcb3f23b000e60e27ddf558dfe1c071b938614e[m[33m ([m[1;32mfor-merging[m[33m)[m
+Author: Evgeniy Legkun <evgeniy.legkun@gmail.com>
+Date:   Sun Nov 25 19:05:34 2018 +0200
+
+    fix
+
+[33mcommit 414da1a3fc0eea56efbc9f864d1de647074c224c[m
+Author: Evgeniy Legkun <evgeniy.legkun@gmail.com>
+Date:   Sun Nov 25 18:58:12 2018 +0200
+
+    adde examples of js callbacks
+
+[33mcommit e8aab4ae62125c2f287d75bf839fac069e2aac18[m
+Author: Evgeniy Legkun <evgeniy.legkun@gmail.com>
+Date:   Sun Nov 25 16:14:49 2018 +0200
+
+    removed HMR settings
+
+[33mcommit 9419ac4edd520f7a419d2d7f462c53af1a4ac722[m
+Author: Evgeniy Legkun <evgeniy.legkun@gmail.com>
+Date:   Sat Nov 17 18:47:06 2018 +0200
+
+    fixed babel, broken HMR, added base module
+
+[33mcommit 2d104817d4e37c0783d766c99cda07ba007689af[m
+Author: Evgeniy Legkun <evgeniy.legkun@gmail.com>
+Date:   Sat Nov 10 12:01:37 2018 +0200
+
+    base js project configuration (broken babel)
+
+[33mcommit eb28ba0c0e61c2ea03b290a8a1ccfe8c70e3f708[m
+Author: Evgeniy Legkun <evgeniy.legkun@gmail.com>
+Date:   Sun Nov 4 18:22:02 2018 +0200
+
+    initial commit
