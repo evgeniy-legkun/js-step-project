@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Table} from 'react-bootstrap';
+import { Table, Button} from 'react-bootstrap';
 import './Table.css';
 
 
@@ -25,12 +25,33 @@ class TableWrapper extends Component{
         const props2 =this.props;
         console.log('props = ', props2);
 
-        const {usersJobs} = this.props;
-        const rows = usersJobs.map((row, index) => {
+        const {usersJobs, removeUser} = this.props;
+       /* const rows = usersJobs.map((row, index) => {
             return (
                 <tr key={index}>
                     <td>{row.name}</td>
                     <td>{row.job}</td>
+                    <td><Button
+                        bsStyle="primary"
+                        bsSize = "xsmall"
+
+                    >Remove #{index}</Button></td>
+
+                </tr>
+            );
+        })*/
+        const rows = usersJobs.map((user, index) => {
+            return (
+                <tr key={index}>
+                    <td>{user.name}</td>
+                    <td>{user.job}</td>
+                    <td><Button
+                        bsStyle="primary"
+                        bsSize = "xsmall"
+                        onClick={() => removeUser(index)}
+
+                    >Remove #{index}</Button></td>
+
                 </tr>
             );
         })
@@ -42,6 +63,7 @@ class TableWrapper extends Component{
                     <tr>
                         <th>Name</th>
                         <th>Job</th>
+                        <th>Remove</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -71,3 +93,6 @@ class TableWrapper extends Component{
 }
 
 export default TableWrapper;
+{/*
+https://react-bootstrap.github.io/components/table
+*/}
