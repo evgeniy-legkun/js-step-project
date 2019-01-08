@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .tableContainer{
     display: grid;
     grid-template-columns: 500px;
@@ -10,4 +11,22 @@
 
     text-align: center;
     margin-top: 25%;
+=======
+.table-container {
+    display: grid;
+    grid-template-columns: 500px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.table-empty {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 20px;
+    font-style: oblique;
+}
+
+.styled-table {
+    table-layout: fixed;
+>>>>>>> a964c8ad8ac2d94e5a94fecfcf746d7f611b4ac0
 }
