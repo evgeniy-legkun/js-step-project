@@ -57,21 +57,18 @@ class TableWrapper extends Component{
         })
 
         return (
-            <div>
-                {
-                    (usersJobs.length !==0) ?
-                        <div className='tableContainer'>
-                            <Table striped={true} bordered condensed={false} hover  >
-                                <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Job</th>
-                                    <th>Remove</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {rows}
-                                {/*  <tr>
+            <div className='tableContainer'>
+                <Table striped={true} bordered condensed={false} hover  >
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Job</th>
+                        <th>Remove</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {rows}
+                  {/*  <tr>
                         <td>Charlie</td>
                         <td>Janitor</td>
                     </tr>
@@ -87,13 +84,8 @@ class TableWrapper extends Component{
                         <td>Dennis</td>
                         <td>Bartender</td>
                     </tr>*/}
-                                </tbody>
-                            </Table>
-                        </div>
-                     : (<div className='table-empty'>Финиш</div>)
-                }
-
-
+                    </tbody>
+                </Table>
 
             </div>
          );
@@ -103,6 +95,4 @@ class TableWrapper extends Component{
 export default TableWrapper;
 {/*
 https://react-bootstrap.github.io/components/table
-
-дальше еще установили спинер, нашли для реакта
 */}
