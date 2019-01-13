@@ -1,8 +1,13 @@
 .table-container {
-    display: grid;
-    grid-template-columns: 500px;
+    /*display: grid;*/
+    /*grid-template-columns: 500px;*/
+    /*justify-content: center;*/
+    /*margin-top: 50px;*/
+
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 50px;
+    align-items: baseline;
 }
 
 .table-empty {
