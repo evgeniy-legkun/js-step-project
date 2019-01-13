@@ -22,14 +22,11 @@
   color: #61dafb;
 }
 
-<<<<<<< HEAD
-=======
 .spinner-container {
   margin-top: 120px;
   margin-left: 50%;
 }
 
->>>>>>> a964c8ad8ac2d94e5a94fecfcf746d7f611b4ac0
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

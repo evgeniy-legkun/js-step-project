@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-.tableContainer{
-    display: grid;
-    grid-template-columns: 500px;
-    margin-top: 50px;
-    justify-content: center;
-}
-
-.table-empty{
-
-
-    text-align: center;
-    margin-top: 25%;
-=======
 .table-container {
     display: grid;
     grid-template-columns: 500px;
@@ -28,5 +14,4 @@
 
 .styled-table {
     table-layout: fixed;
->>>>>>> a964c8ad8ac2d94e5a94fecfcf746d7f611b4ac0
 }
