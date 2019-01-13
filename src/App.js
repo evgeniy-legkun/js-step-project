@@ -1,55 +1,40 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
-import TableUsersJobs from './components/Display/Table/TableWrapper';
 import { RingLoader } from 'react-spinners';
+import UsersList from './views/Users/UsersList';
 
 class App extends Component {
+  constructor (props) {
+    super(props);
+    this.setLoader = this.setLoader.bind(this);
+  }
+
   state = {
-    usersJobsData: [
-      {name: 'Charlie', job: 'Janitor'},
-      {name: 'Mac', job: 'Bouncer'},
-      {name: 'Dee', job: 'Aspiring actress'},
-      {name: 'Dennis', job: 'Bartender'}
-    ],
     loading: false
   };
 
-  removeUser = (index, delay = 500) => {
-    const {usersJobsData} = this.state;
-
-    this.setState({loading: true});
-
-    setTimeout(() => {
-      this.setState({
-        usersJobsData: usersJobsData.filter((user, userIndex) => {
-          return userIndex !== index;
-        }),
-        loading: false
-      });
-    }, delay);
-  };
+  setLoader (value) {
+    this.setState({loading: value});
+  }
 
   render () {
+    const { loading } = this.state;
+
     return (
       <div className="container">
-        {
-          this.state.loading ? (
-            <div className={'spinner-container'}>
-              <RingLoader
-                loading={this.state.loading}
-                sizeUnit={'px'}
-                size={25}
-                color={'rgb(54, 215, 183)'}
-              />
-            </div>
-          ) : (
-            <TableUsersJobs
-              usersJobs={this.state.usersJobsData}
-              removeUser={this.removeUser}
-            />
-          )
-        }
+        <div className='spinner-container'>
+          <RingLoader
+            loading={loading}
+            sizeUnit={'px'}
+            size={25}
+            color={'rgb(54, 215, 183)'}
+          />
+        </div>
+
+        <div style={{ visibility: loading ? 'hidden': 'visible'}}>
+          {/*Project global components*/}
+          <UsersList setLoader={this.setLoader} />
+        </div>
       </div>
     );
   }
