@@ -10,6 +10,9 @@ library.add(
         faArrowLeft
     });
 
+export  default function IconSvg() {
+    ///
+}
 
 class IconSvg extends Component{
     render (){
