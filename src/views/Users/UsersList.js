@@ -58,6 +58,10 @@ class UsersList extends Component {
   render () {
     const { users, jobs, isVisibleList } = this.state;
 
+    const getAddButtonColor = () => {
+        return this.state.isVisibleList ? 'success' : 'primary';
+    };
+
     const createTableBody = (users) => {
       return users.map((user, index) => {
         return (
@@ -85,11 +89,11 @@ class UsersList extends Component {
             <div className='table-container'>
               <Button
                 style={{marginBottom: '20px'}}
-                bsStyle='primary'
+                bsStyle={getAddButtonColor()}
                 bsSize='xsmall'
                 onClick={() => this.handleCreateForm(!isVisibleList)}
               >
-                Add user
+                  {isVisibleList ?  'Add user' : '<-Back'}
               </Button>
 
               {
@@ -103,6 +107,7 @@ class UsersList extends Component {
                     </tr>
                     </thead>
                     <tbody>
+                    {/*<td>jhmnjmnbmnm</td>*/}
                     { createTableBody(users) }
                     </tbody>
                   </Table>
