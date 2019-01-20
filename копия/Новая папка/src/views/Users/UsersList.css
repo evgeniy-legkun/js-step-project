@@ -1,0 +1,17 @@
+.table-container {
+    display: grid;
+    grid-template-columns: 500px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.table-empty {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 20px;
+    font-style: oblique;
+}
+
+.styled-table {
+    table-layout: fixed;
+}

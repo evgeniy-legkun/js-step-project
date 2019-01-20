@@ -1,14 +1,43 @@
 import React, { Component } from 'react';
 import { Table, Button } from 'react-bootstrap';
-import './Table.css';
+import './UsersList.css';
 
+class UsersList extends Component {
+  constructor (props) {
+    super(props);
+    this.removeUser = this.removeUser.bind(this);
+  }
 
+  state = {
+    users: [
+      {name: 'Charlie', job: 'Janitor'},
+      {name: 'Mac', job: 'Bouncer'},
+      {name: 'Dee', job: 'Aspiring actress'},
+      {name: 'Dennis', job: 'Bartender'}
+    ],
+    loading: false
+  };
 
-class TableWrapper extends Component {
+  removeUser = (index, delay = 500) => {
+    const { users } = this.state;
+    this.props.setLoader(true);
+
+    setTimeout(() => {
+      this.setState({
+        users: users.filter((user, userIndex) => {
+          return userIndex !== index;
+        })
+      });
+
+      this.props.setLoader(false);
+    }, delay);
+  };
+
   render () {
-    const { usersJobs, removeUser } = this.props;
-    const createTableBody = (usersJobs) => {
-      return usersJobs.map((user, index) => {
+    const { users } = this.state;
+
+    const createTableBody = (users) => {
+      return users.map((user, index) => {
         return (
           <tr key={index}>
             <td>{user.name}</td>
@@ -17,14 +46,12 @@ class TableWrapper extends Component {
               <Button
                 bsStyle='primary'
                 bsSize='xsmall'
-                onClick={() => removeUser(index, 1000)}
+                onClick={() => this.removeUser(index, 1000)}
               >
                 remove
               </Button>
             </td>
           </tr>
-
-
         );
       });
     };
@@ -32,7 +59,7 @@ class TableWrapper extends Component {
     return (
       <div>
         {
-          usersJobs.length !== 0 ? (
+          users.length !== 0 ? (
             <div className='table-container'>
               <Table striped bordered hover className='styled-table'>
                 <thead>
@@ -43,7 +70,7 @@ class TableWrapper extends Component {
                 </tr>
                 </thead>
                 <tbody>
-                  {createTableBody(usersJobs)}
+                  { createTableBody(users) }
                 </tbody>
               </Table>
             </div>
@@ -58,5 +85,4 @@ class TableWrapper extends Component {
   }
 }
 
-export default TableWrapper;
-
+export default UsersList;

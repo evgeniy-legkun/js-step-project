@@ -10,6 +10,15 @@ class App extends Component {
   }
 
   state = {
+<<<<<<< HEAD
+    usersJobsData: [
+      {name: 'CharlieAB', job: 'Janitor'},
+      {name: 'Mac', job: 'Bouncer'},
+      {name: 'Dee', job: 'Aspiring actress'},
+      {name: 'Dennis', job: 'Bartender'}
+    ],
+=======
+>>>>>>> d17d35a611a8ab44ab53355f8a28ff9bb1071c94
     loading: false
   };
 
