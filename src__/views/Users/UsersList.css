@@ -5,7 +5,11 @@
     /*margin-top: 50px;*/
 
     display: flex;
+<<<<<<< HEAD
    flex-direction: column;
+=======
+    flex-direction: column;
+>>>>>>> 537f835d3531ff173b75b20e4bfd8c174410e7b5
     justify-content: center;
     align-items: baseline;
 }
