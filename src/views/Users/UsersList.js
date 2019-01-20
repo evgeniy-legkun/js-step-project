@@ -2,11 +2,22 @@ import React, { Component } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import './UsersList.css';
 import UserCreateForm from './UserCreateForm';
+import IconSvg from '../../components/Display/Icon/IconSvg';
 
 class UsersList extends Component {
   constructor (props) {
     super(props);
   }
+
+  componentDidMount () {
+    this.timerId=setInterval(() =>{
+      this.tick();
+    },1000)
+  }
+ componentWillUnmount (){
+    clearInterval(this.timerId);
+ }
+
 
   state = {
     users: [
@@ -23,7 +34,8 @@ class UsersList extends Component {
       {id: 4, name: 'Bartender'},
     ],
 
-    isVisibleList: true
+    isVisibleList: true,
+      date: new Date()
   }
 
   getJobById (id) {
@@ -53,6 +65,10 @@ class UsersList extends Component {
   handleCreateForm (value) {
     if (typeof(value) !== 'boolean') { return; }
     this.setState({isVisibleList: value});
+  }
+
+  tick ()   {
+    this.setState({date: new Date() });
   }
 
   render () {
@@ -93,8 +109,21 @@ class UsersList extends Component {
                 bsSize='xsmall'
                 onClick={() => this.handleCreateForm(!isVisibleList)}
               >
-                  {isVisibleList ?  'Add user' : '<-Back'}
+                  {
+                    isVisibleList ? (
+
+                     'Add user'
+                    ): (
+                        [
+                       <IconSvg key='icon' icon = 'arrow-left'/>,
+                        <span key='button-text'> Back</span>
+                        ]
+                        )
+                  }
               </Button>
+                <div>
+                  Date {this.state.date.toLocaleTimeString()} <br/><br/>
+                </div>
 
               {
                 isVisibleList ? (
