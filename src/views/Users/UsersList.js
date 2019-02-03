@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import './UsersList.css';
 import UserCreateForm from './UserCreateForm';
+import IconSvg from '../../components/Display/Icon/IconSvg';
 
 class UsersList extends Component {
   constructor (props) {
     super(props);
+    this.updateUserType = this.updateUserType.bind(this);
   }
 
   state = {
@@ -23,8 +25,10 @@ class UsersList extends Component {
       {id: 4, name: 'Bartender'},
     ],
 
-    isVisibleList: true
-  }
+    isVisibleList: true,
+
+    userType: 'male'
+  };
 
   getJobById (id) {
     const {jobs} = this.state;
@@ -55,8 +59,17 @@ class UsersList extends Component {
     this.setState({isVisibleList: value});
   }
 
+  updateUserType (type) {
+    this.setState({ userType: type });
+  }
+
   render () {
     const { users, jobs, isVisibleList } = this.state;
+    const { date } = this.props;
+
+    const getAddButtonColor = () => {
+      return this.state.isVisibleList ? 'success' : 'primary';
+    };
 
     const createTableBody = (users) => {
       return users.map((user, index) => {
@@ -82,35 +95,59 @@ class UsersList extends Component {
       <div>
         {
           users.length !== 0 ? (
-            <div className='table-container'>
-              <Button
-                style={{marginBottom: '20px'}}
-                bsStyle='primary'
-                bsSize='xsmall'
-                onClick={() => this.handleCreateForm(!isVisibleList)}
-              >
-                Add user
-              </Button>
+            [
+              <div style={{display: 'flex'}} key='user-type'>
+                User type :
+                <div style={{paddingLeft: '15px'}}>
+                  <IconSvg
+                    key='button-icon' icon={this.state.userType}
+                  />
+                </div>
+                <br/><br/>
+              </div>,
+              <div key='users-table' className='table-container'>
+                <Button
+                  style={{marginBottom: '20px'}}
+                  bsStyle={getAddButtonColor()}
+                  bsSize='xsmall'
+                  onClick={() => this.handleCreateForm(!isVisibleList)}
+                >
+                  {
+                    isVisibleList ? (
+                      'Add user'
+                    ) : (
+                      [
+                        <IconSvg key='button-icon' icon='arrow-left' />,
+                        <span key='button-text'> Back</span>
+                      ]
+                    )
+                  }
+                </Button>
 
-              {
-                isVisibleList ? (
-                  <Table striped bordered hover className='styled-table'>
-                    <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Job</th>
-                      <th>Remove</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    { createTableBody(users) }
-                    </tbody>
-                  </Table>
-                ) : (
-                  <UserCreateForm jobs={jobs} />
-                )
-              }
-            </div>
+                <div>
+                  Date: {date.toLocaleTimeString()}<br /><br />
+                </div>
+
+                {
+                  isVisibleList ? (
+                    <Table striped bordered hover className='styled-table'>
+                      <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Job</th>
+                        <th>Remove</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      { createTableBody(users) }
+                      </tbody>
+                    </Table>
+                  ) : (
+                    <UserCreateForm updateUserType={this.updateUserType} jobs={jobs} />
+                  )
+                }
+              </div>
+            ]
           ) : (
             <div className='table-empty'>
               The table is empty

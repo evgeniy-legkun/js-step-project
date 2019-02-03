@@ -9,12 +9,28 @@ class App extends Component {
     this.setLoader = this.setLoader.bind(this);
   }
 
+  componentDidMount () {
+    this.timerId = setInterval(() => {
+      this.tick();
+    }, 1000)
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.timerId);
+  }
+
   state = {
-    loading: false
+    loading: false,
+
+    date: new Date()
   };
 
   setLoader (value) {
     this.setState({loading: value});
+  }
+
+  tick () {
+    this.setState({ date: new Date() });
   }
 
   render () {
@@ -33,7 +49,7 @@ class App extends Component {
 
         <div style={{ visibility: loading ? 'hidden': 'visible'}}>
           {/*Project global components*/}
-          <UsersList setLoader={this.setLoader} />
+          <UsersList date={this.state.date} setLoader={this.setLoader} />
         </div>
       </div>
     );
